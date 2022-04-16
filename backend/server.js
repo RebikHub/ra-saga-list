@@ -20,16 +20,16 @@ const router = new Router();
 
 function fortune(ctx, body = null, status = 200) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() > 0.25) {
+        // setTimeout(() => {
+        //     if (Math.random() > 0.25) {
                 ctx.response.status = status;
                 ctx.response.body = body;
                 resolve();
                 return;
-            }
+            // }
 
-            reject(new Error('Something bad happened'));
-        }, 3 * 1000);
+            // reject(new Error('Something bad happened'));
+        // }, 3 * 1000);
     })
 }
 

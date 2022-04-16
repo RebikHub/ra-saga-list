@@ -1,26 +1,15 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { combineEpics, createEpicMiddleware } from "redux-observable";
-import reducerGet from "./reducerGet";
-import reducerGetId from "./reducerGetId";
-import { getServicesEpic, getIdServicesEpic } from "../epic/index";
+import { configureStore } from "@reduxjs/toolkit";
+import { createSagaMiddleware } from "redux-saga";
+import { saga } from "../sagas";
+import slices from "./slices";
 
-const reducer = combineReducers({
-  serviceList: reducerGet,
-  serviceItem: reducerGetId,
-});
+const sagaMiddleware = createSagaMiddleware();
 
-const epic = combineEpics(
-  getServicesEpic,
-  getIdServicesEpic
-);
+const store = configureStore({
+  reducer: slices,
+  middleware: [sagaMiddleware]
+})
 
-const epicMiddleware = createEpicMiddleware();
-
-const store = createStore(
-  reducer,
-  applyMiddleware(epicMiddleware)
-);
-
-epicMiddleware.run(epic);
+sagaMiddleware.run(saga);
 
 export default store;

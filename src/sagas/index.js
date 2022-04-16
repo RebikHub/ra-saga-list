@@ -25,3 +25,7 @@ export const getIdServicesEpic = (action$) => action$.pipe(
     catchError((e) => of(fetchGetIdError(e))),
   ))
 )
+
+export function* saga() {
+  yield console.log('saga');
+}
