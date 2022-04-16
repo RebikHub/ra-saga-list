@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchGetRequest } from '../store/action';
+import { fetchGetRequest } from '../store/slices';
 import Error from './Error';
 import Loader from './Loader';
 
 export default function ServiceList() {
-  const { items, loading, error } = useSelector(state => state.serviceList);
+  const { items, loading, error } = useSelector(state => state.reducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchGetRequest());
   }, [dispatch])
+
+  console.log(items, loading, error);
 
   if (loading) {
     return <Loader/>;

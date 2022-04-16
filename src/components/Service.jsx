@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { fetchGetIdRequest } from '../store/action';
+import { fetchGetIdRequest } from '../store/slices';
 import Error from './Error';
 import Loader from './Loader';
 
