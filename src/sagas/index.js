@@ -4,6 +4,7 @@ import {
   fetchGetIdError,
   fetchGetIdSuccess,
 } from '../store/slices';
+import {spawn} from 'redux-saga';
 
 // export const getServicesEpic = (action$) => action$.pipe(
 //   ofType(FETCH_GET_REQUEST),
@@ -30,6 +31,11 @@ async function getServices() {
   return await response.json();
 }
 
-export function* saga() {
+function* getServicesSaga() {
+  
+}
+
+export default function* saga() {
+  yield spawn()
   yield console.log('saga');
 }
