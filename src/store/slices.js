@@ -12,6 +12,7 @@ export const listSlices = createSlice({
   reducers: {
     fetchGetRequest: (state, action) => {
       state.loading = true;
+      state.error = null;
     },
     
     fetchGetError: (state, action) => {

@@ -6,7 +6,7 @@ import Error from './Error';
 import Loader from './Loader';
 
 export default function Service() {
-  const { item, loading, error } = useSelector(state => state.serviceItem);
+  const { item, loading, error } = useSelector(state => state.reducer);
   const navigate = useNavigate();
   const param = useParams();
   const id = Number(param.id);

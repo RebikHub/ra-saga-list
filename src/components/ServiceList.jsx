@@ -13,8 +13,6 @@ export default function ServiceList() {
     dispatch(fetchGetRequest());
   }, [dispatch])
 
-  console.log(items, loading, error);
-
   if (loading) {
     return <Loader/>;
   };
